@@ -1,6 +1,13 @@
-from flask import Flask, request, render_template
+from flask import Flask, render_template, redirect
 app = Flask(__name__)
 
 @app.route('/')
-def button():
-    return render_template("front_end.html", ButtonPressed = "hi")
+def home():
+    return render_template("front_end.html")
+
+@app.route('/blog')
+def blog_direct():
+    return render_template("blog_page.html")
+
+if __name__ == "__main__":
+    app.run(debug = True)
